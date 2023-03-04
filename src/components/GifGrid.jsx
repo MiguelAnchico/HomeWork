@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { GifItem } from "./GifItem";
 
-import "./GifGrid.css";
-
 const getGifs = async (category, setImage) => {
   const url = `https://api.giphy.com/v1/gifs/search?api_key=fqLHp3DpsBWEpmXsS5I6Z0z45Mby23mb&q=${category}&limit=25&offset=0&rating=g&lang=en`;
   const resp = await fetch(url);
