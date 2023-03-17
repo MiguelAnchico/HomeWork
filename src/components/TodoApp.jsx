@@ -1,21 +1,22 @@
 import { useReducer } from "react";
+import { TodoAdd } from "./TodoAdd";
 import { TodoList } from "./TodoList";
 import { TodoReducer } from "./TodoReducer";
 
 const initialState = [
   {
-    id: new Date().getTime(),
+    id: new Date().getTime() + 1,
     description: "Hacer los challenges",
     done: false,
   },
   {
     id: new Date().getTime(),
-    description: "Hacer los challenges",
+    description: "Bañarse",
     done: false,
   },
   {
     id: new Date().getTime(),
-    description: "Hacer los challenges",
+    description: "Chuzar a alguien",
     done: false,
   },
 ];
@@ -31,15 +32,13 @@ export const TodoApp = () => {
 
       <div className="row">
         <div className="col-7">
-          <TodoList todos={todos} />
+          <TodoList todos={todos} dispatch={dispatchTodo} />
         </div>
         <div className="col-5">
           <h4>Agregar TODO</h4>
           <hr />
-          <form>
-            <input type="text" className="form-control" />
-            <button className="btn btn-outline-primary mt-1">Agregar</button>
-          </form>
+          <TodoAdd dispatch={dispatchTodo}/>
+          
         </div>
       </div>
     </div>

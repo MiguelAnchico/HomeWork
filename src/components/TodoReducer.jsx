@@ -1,12 +1,16 @@
 export const TodoReducer = (initialState, action) => {
   switch (action.type) {
-    case "ABC":
-      throw new Error("action not yet implemented");
+    case "remove":
+      let states = [...initialState]
+      states.splice(action.payload, 1)
+
+      return states
       break;
 
-    case "Eliminar":
-      action.done = true;
-      break;
+      case "Agregar":
+        let nuevoEstado = [...initialState, action.payload]
+        return nuevoEstado
+        break;
 
     default:
       return initialState;
